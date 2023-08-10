@@ -1,4 +1,4 @@
-#light_bright
+# light_bright
 
 A drag and drop color grid application built with HTML, CSS, and JavaScript.
 
