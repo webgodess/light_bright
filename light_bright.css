@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
+
+html,
+body {
+  /* for the gradient to fill the whole page */
+  min-height: 100%;
+}
+
+body {
+  font-family: "Exo", sans-serif;
+ background: rgb(0,168,138);
+background: -moz-linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
+background: -webkit-linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
+background: linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00a88a",endColorstr="#4c1a57",GradientType=1);
+  /* to make gradient extend throughout the viewport*/
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom : 1px solid #87abb8;
+  padding:5px
+}
+
+h1{
+ text-shadow: rgb(168,54,0) 0px 0px 24px;
+  color: #00a88a
+}
+
+button {
+  border: #4c1a57 2px solid;
+  background-color: #00a88a;
+  color:#4c1a57;
+  padding: 10px;
+  font-size: 18px;
+  transition: 0.6s;
+}
+
+button:hover {
+  background-color: #4c1a57;
+  color: #00a88a;
+}
+
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+table {
+  margin: 0 auto;
+  border: none;
+ 
+}
+
+
+
+td {
+  margin: 5px;
+  border: solid black 1.5px;
+  border-radius: 50%;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px;
+  min-height: 20px;
+}
+
+
+
+
+td:hover::selection {
+  color: initial;
+  background-color: initial;
+}
+
+td:hover {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
