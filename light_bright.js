@@ -4,6 +4,10 @@ const resetRecent = document.getElementsByClassName("btn-recent")[0];
 
 const container=document.querySelector('.container')
 
+let isMouseDown = false;
+let currentColor = "";
+let dragStartColor = "";
+let dragStart;
 
 const createTable = () => {
 
@@ -35,6 +39,44 @@ const createTable = () => {
       cell.addEventListener("dragleave", () => {
         cellText.style.color = "";
       });
+      cell.addEventListener("click", (e) => {
+        e.target.style.background = `radial-gradient(${randomColors()}, ${randomColors()})`;
+      });
+     cell.addEventListener("dblclick", (e) => {
+        e.target.style.background = "";
+      });
+
+      cell.addEventListener("mousedown", (e) => {
+        if(e.target.tagName === "TD"){
+          isMouseDown = true;
+          currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
+          dragStartColor = currentColor;
+          dragStart = e.target;
+        }else{
+          
+        }  return;
+    
+        
+      });
+    
+      cell.addEventListener("mouseup", (e) => {
+        isMouseDown = false;
+      });
+    
+      cell.addEventListener("mouseover", (e) => {
+        if (isMouseDown) {
+          dragStart.style.background = dragStartColor;
+          const target = e.target;
+    
+          /*target.tagName is a property of the Event object in JavaScript. It returns a string representing the name of the tag of the element that triggered the event. For example, if the event was triggered by a <div> element, target.tagName would return the string "DIV".
+           */
+          if (target.tagName === "TD") {
+            target.style.background = dragStartColor;
+            console.log(dragStartColor);
+          }
+        }
+      });
+    
       row.appendChild(cell);
     }
     tableBody.appendChild(row);
@@ -60,7 +102,10 @@ createTable();
 
 const handleResize = () => {
   let grid = document.getElementsByTagName('table')[0];
+  let circle = document.getElementsByTagName("td");
 
+  //make the array like object an actual array in order to use forEach
+  circle = [...circle];
   if (grid) {
     container.removeChild(grid);
   }
@@ -71,65 +116,25 @@ const handleResize = () => {
   }else {
     createTable();
   }
+
+  
+  
 };
 
 window.addEventListener("resize", handleResize);
 
 
-let circle = document.getElementsByTagName("td");
 
-//make the array like object an actual array in order to use forEach
-circle = [...circle];
-let isMouseDown = false;
-let currentColor = "";
-let dragStartColor = "";
-let dragStart;
-//iterate through the array with forEach
-circle.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    e.target.style.background = `radial-gradient(${randomColors()}, ${randomColors()})`;
-  });
-  element.addEventListener("dblclick", (e) => {
-    e.target.style.background = "";
-  });
-
-  element.addEventListener("mousedown", (e) => {
-    if(e.target.tagName === "TD"){
-      isMouseDown = true;
-      currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
-      dragStartColor = currentColor;
-      dragStart = e.target;
-    }else{
-      return
-    }  
-
-    
-  });
-
-  element.addEventListener("mouseup", (e) => {
-    isMouseDown = false;
-  });
-
-  element.addEventListener("mouseover", (e) => {
-    if (isMouseDown) {
-      dragStart.style.background = dragStartColor;
-      const target = e.target;
-
-      /*target.tagName is a property of the Event object in JavaScript. It returns a string representing the name of the tag of the element that triggered the event. For example, if the event was triggered by a <div> element, target.tagName would return the string "DIV".
-       */
-      if (target.tagName === "TD") {
-        target.style.background = dragStartColor;
-        console.log(dragStartColor);
-      }
-    }
-  });
-});
 
 const reset = () => {
   dragStart.style.background = "";
 };
 
 const resetAll = () => {
+  let circle = document.getElementsByTagName("td");
+
+//make the array like object an actual array in order to use forEach
+circle = [...circle];
   circle.forEach((element) => {
     element.style.background = "";
   });
