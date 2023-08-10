@@ -4,15 +4,14 @@ html,
 body {
   /* for the gradient to fill the whole page */
   min-height: 100%;
+  font-family: "Exo", sans-serif;
 }
 
 body {
-  font-family: "Exo", sans-serif;
- background: rgb(0,168,138);
-background: -moz-linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
-background: -webkit-linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
-background: linear-gradient(304deg, rgba(0,168,138,1) 0%, rgba(76,26,87,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00a88a",endColorstr="#4c1a57",GradientType=1);
+  background: #485563;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
   /* to make gradient extend throughout the viewport*/
 
   background-repeat: no-repeat;
@@ -28,26 +27,27 @@ header {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 40px;
-  border-bottom : 1px solid #87abb8;
+  border-bottom : 1px solid #ff3e9d;
   padding:5px
 }
 
 h1{
- text-shadow: rgb(168,54,0) 0px 0px 24px;
+ text-shadow: rgb(255, 62, 157) 0px 0px 24px;
   color: #00a88a
 }
 
 button {
-  border: #4c1a57 2px solid;
+  border: #542a71 2px solid;
   background-color: #00a88a;
-  color:#4c1a57;
+  color:#542a71;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
   transition: 0.6s;
 }
 
 button:hover {
-  background-color: #4c1a57;
+  background-color: #542a71;
+  box-shadow: rgb(255, 62, 157) 0px 0px 6px;
   color: #00a88a;
 }
 
