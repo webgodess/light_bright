@@ -74,6 +74,7 @@ td {
   text-overflow: ellipsis;
   padding: 20px;
   min-height: 20px;
+  user-select: none;
 }
 
 
