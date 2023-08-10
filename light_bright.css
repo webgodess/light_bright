@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
 body {
   /* for the gradient to fill the whole page */
@@ -13,7 +19,6 @@ body {
   background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
   /* to make gradient extend throughout the viewport*/
-
   background-repeat: no-repeat;
   background-attachment: fixed;
   
