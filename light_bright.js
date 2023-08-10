@@ -94,10 +94,16 @@ circle.forEach((element) => {
   });
 
   element.addEventListener("mousedown", (e) => {
-    isMouseDown = true;
-    currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
-    dragStartColor = currentColor;
-    dragStart = e.target;
+    if(e.target.tagName === "TD"){
+      isMouseDown = true;
+      currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
+      dragStartColor = currentColor;
+      dragStart = e.target;
+    }else{
+      return
+    }  
+
+    
   });
 
   element.addEventListener("mouseup", (e) => {
