@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
+
+$primary-color: #485563;
+$secondary-color: #29323c;
+$tertiary-color: #542a71;
+$quadruple-color: #ff3e9d;
+$fifth-color: #00a88a;
+$sixth-color: #000000;
+$seventh-color: #666;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* for the gradient to fill the whole page */
+  min-height: 100%;
+  font-family: "Exo", sans-serif;
+}
+
+body {
+  background: $primary-color; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    $secondary-color,
+    $primary-color
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    $secondary-color,
+    $primary-color
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* to make gradient extend throughout the viewport*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid $quadruple-color;
+  padding: 5px;
+}
+
+h1 {
+  text-shadow: $quadruple-color 0px 0px 24px;
+  color: $fifth-color;
+}
+
+button {
+  border: $tertiary-color 2px solid;
+  background-color: $fifth-color;
+  color: $tertiary-color;
+  padding: 10px;
+  font-size: 20px;
+  transition: 0.6s;
+}
+
+button:hover {
+  background-color: $tertiary-color;
+  box-shadow: $quadruple-color 0px 0px 6px;
+  color: $fifth-color;
+}
+
+button:active {
+  box-shadow: 0 5px $seventh-color;
+  transform: translateY(4px);
+}
+
+table {
+  margin: 0 auto;
+  border: none;
+}
+
+td {
+  margin: 5px;
+  border: solid $sixth-color 1.5px;
+  border-radius: 50%;
+  color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px;
+  min-height: 20px;
+  user-select: none;
+}
