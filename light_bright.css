@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -14,17 +13,13 @@ body {
 }
 
 body {
-  background: #485563;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: #485563; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29323c, #485563); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
   /* to make gradient extend throughout the viewport*/
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
 }
-
-
 
 header {
   display: flex;
@@ -32,19 +27,19 @@ header {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 40px;
-  border-bottom : 1px solid #ff3e9d;
-  padding:5px
+  border-bottom: 1px solid #ff3e9d;
+  padding: 5px;
 }
 
-h1{
- text-shadow: rgb(255, 62, 157) 0px 0px 24px;
-  color: #00a88a
+h1 {
+  text-shadow: #ff3e9d 0px 0px 24px;
+  color: #00a88a;
 }
 
 button {
   border: #542a71 2px solid;
   background-color: #00a88a;
-  color:#542a71;
+  color: #542a71;
   padding: 10px;
   font-size: 20px;
   transition: 0.6s;
@@ -52,7 +47,7 @@ button {
 
 button:hover {
   background-color: #542a71;
-  box-shadow: rgb(255, 62, 157) 0px 0px 6px;
+  box-shadow: #ff3e9d 0px 0px 6px;
   color: #00a88a;
 }
 
@@ -64,14 +59,11 @@ button:active {
 table {
   margin: 0 auto;
   border: none;
- 
 }
-
-
 
 td {
   margin: 5px;
-  border: solid black 1.5px;
+  border: solid #000000 1.5px;
   border-radius: 50%;
   color: transparent;
   white-space: nowrap;
@@ -80,8 +72,4 @@ td {
   padding: 20px;
   min-height: 20px;
   user-select: none;
-}
-
-
-
-
+}/*# sourceMappingURL=light_bright.css.map */
