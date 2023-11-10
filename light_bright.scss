@@ -44,19 +44,20 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 40px auto;
   border-bottom: 1px solid $quadruple-color;
   padding: 5px;
-
+  min-width: 100%;
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     gap: 20px;
   }
 }
 
-h2 {
+h1 {
   text-shadow: $quadruple-color 0px 0px 24px;
   color: $fifth-color;
+  text-align: center;
 }
 
 button {

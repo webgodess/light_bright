@@ -26,9 +26,10 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 40px auto;
   border-bottom: 1px solid #ff3e9d;
   padding: 5px;
+  min-width: 100%;
 }
 @media only screen and (max-width: 767px) {
   header {
@@ -37,9 +38,10 @@ header {
   }
 }
 
-h2 {
+h1 {
   text-shadow: #ff3e9d 0px 0px 24px;
   color: #00a88a;
+  text-align: center;
 }
 
 button {
