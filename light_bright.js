@@ -19,7 +19,8 @@ const createTable = () => {
  window.matchMedia() returns a MediaQueryList object, not a boolean value. To get a boolean value we add .matches to the variable
   */
   if (mobileView.matches) {
-    const landScapeView = window.matchMedia("orientation:landscape")
+    const landScapeView = window.matchMedia("orientation:landscape");
+    landScapeView
       ? ((numRows = 10), (numCols = 12))
       : ((numRows = 7), (numCols = 8));
   }
