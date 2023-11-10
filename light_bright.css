@@ -30,8 +30,14 @@ header {
   border-bottom: 1px solid #ff3e9d;
   padding: 5px;
 }
+@media only screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 
-h1 {
+h2 {
   text-shadow: #ff3e9d 0px 0px 24px;
   color: #00a88a;
 }
@@ -56,9 +62,18 @@ button:active {
   transform: translateY(4px);
 }
 
+.button-group {
+  margin-bottom: 10px;
+}
+
 table {
   margin: 0 auto;
   border: none;
+}
+@media only screen and (max-width: 767px) {
+  table {
+    max-width: 100%;
+  }
 }
 
 td {
