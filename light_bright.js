@@ -1,6 +1,6 @@
 const resetAllBtn = document.getElementsByClassName("btn-all")[0];
 
-const resetRecent = document.getElementsByClassName("btn-recent")[0];
+const resetRecentBtn = document.getElementsByClassName("btn-recent")[0];
 
 const container = document.querySelector(".container");
 
@@ -20,8 +20,56 @@ const createTable = () => {
   */
   if (mobileView.matches) {
     numRows = 7;
-    numCols = 10;
+    numCols = 8;
   }
+
+  const handleDragOver = () => {
+    cellText.style.color = "transparent";
+  };
+
+  const handleDragLeave = () => {
+    cellText.style.color = "";
+  };
+
+  const handleClick = (e) => {
+    e.target.style.background = `radial-gradient(${randomColors()}, ${randomColors()})`;
+  };
+
+  const handleDoubleClick = (e) => {
+    e.target.style.background = "";
+  };
+
+  const handleMouseDown = (e) => {
+    if (e.target.tagName === "TD") {
+      isMouseDown = true;
+      currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
+      dragStartColor = currentColor;
+      dragStart = e.target;
+    } else {
+    }
+    return;
+  };
+
+  const handleMouseUp = (e) => {
+    isMouseDown = false;
+  };
+
+  const handleMouseOver = (e) => {
+    if (isMouseDown) {
+      dragStart.style.background = dragStartColor;
+      const target = e.target;
+
+      /*target.tagName is a property of the Event object in JavaScript. 
+      It returns a string representing the name of the tag of the element that triggered the event. 
+      For example, if the event was triggered by a <div> element, 
+      target.tagName would return the string "DIV".
+       */
+      if (target.tagName === "TD") {
+        target.style.background = dragStartColor;
+        // console.log(dragStartColor);
+      }
+    }
+  };
 
   const table = document.createElement("table");
   const tableBody = document.createElement("tbody");
@@ -31,47 +79,16 @@ const createTable = () => {
       const cell = document.createElement("td");
       const cellText = document.createTextNode(` `);
       cell.appendChild(cellText);
-      cell.addEventListener("dragover", () => {
-        cellText.style.color = "transparent";
-      });
-      cell.addEventListener("dragleave", () => {
-        cellText.style.color = "";
-      });
-      cell.addEventListener("click", (e) => {
-        e.target.style.background = `radial-gradient(${randomColors()}, ${randomColors()})`;
-      });
-      cell.addEventListener("dblclick", (e) => {
-        e.target.style.background = "";
-      });
+      cell.addEventListener("dragover", handleDragOver);
+      cell.addEventListener("dragleave", handleDragLeave);
+      cell.addEventListener("click", handleClick);
+      cell.addEventListener("dblclick", handleDoubleClick);
 
-      cell.addEventListener("mousedown", (e) => {
-        if (e.target.tagName === "TD") {
-          isMouseDown = true;
-          currentColor = `radial-gradient(${randomColors()}, ${randomColors()})`;
-          dragStartColor = currentColor;
-          dragStart = e.target;
-        } else {
-        }
-        return;
-      });
+      cell.addEventListener("mousedown", handleMouseDown);
 
-      cell.addEventListener("mouseup", (e) => {
-        isMouseDown = false;
-      });
+      cell.addEventListener("mouseup", handleMouseUp);
 
-      cell.addEventListener("mouseover", (e) => {
-        if (isMouseDown) {
-          dragStart.style.background = dragStartColor;
-          const target = e.target;
-
-          /*target.tagName is a property of the Event object in JavaScript. It returns a string representing the name of the tag of the element that triggered the event. For example, if the event was triggered by a <div> element, target.tagName would return the string "DIV".
-           */
-          if (target.tagName === "TD") {
-            target.style.background = dragStartColor;
-            // console.log(dragStartColor);
-          }
-        }
-      });
+      cell.addEventListener("mouseover", handleMouseOver);
 
       row.appendChild(cell);
     }
@@ -104,6 +121,7 @@ const handleResize = () => {
   }
 
   const mobileView = window.matchMedia("(max-width: 767px)");
+
   if (mobileView.matches) {
     createTable();
   } else {
@@ -113,7 +131,7 @@ const handleResize = () => {
 
 window.addEventListener("resize", handleResize);
 
-const reset = () => {
+const resetRecent = () => {
   dragStart.style.background = "";
 };
 
@@ -128,4 +146,4 @@ const resetAll = () => {
 };
 
 resetAllBtn.addEventListener("click", resetAll);
-resetRecent.addEventListener("click", reset);
+resetRecentBtn.addEventListener("click", resetRecent);
